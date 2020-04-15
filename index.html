@@ -15,23 +15,30 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <link rel="icon" href="data:;base64,=">
-
+    
+    <style>
+        #primary-row{
+            background-color: #e9ecef;
+        }
+        .streaming-status-text{
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+        }
+    </style>
 </head>
 
 
 
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div id="primary-row" class="row">
             <div class="col-md-1">
 
             </div>
             <div class="col-md-11">
-                hello world
 
-                <br>
-                <button class="btn btn-primary" id="check-button">Check if Koberson1 is streaming</button>
-                <br>
+
 
                 <div id="metadata-container">
 
@@ -48,9 +55,14 @@
                 <div id="auxiliary-info">
                     Check this out on github!
                 </div>
+            
+                <br>
+                <button class="btn btn-primary" id="check-button">Check if Koberson1 is streaming</button>
+                <br>
             </div>
         </div>
     </div>
+    
 </body>
 
 </html>

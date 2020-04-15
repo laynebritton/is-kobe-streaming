@@ -1,5 +1,6 @@
 var koberson1_user_id = "44325453"
 var client_id = config.KEY
+var streamer_username = "Koberson1"
 
 function check_if_kobe_is_streaming(){
 
@@ -45,11 +46,22 @@ function parse_api_response(response){
 }
 
 function populate_metadata_container(response){
+    var kobe_is_streaming_text = $("<h1 class='streaming-status-text'>")
+    
+    if(response["data"][0]["type"] == "live"){
+        $(kobe_is_streaming_text).text( streamer_username + " is streaming!")
 
+    }else{
+        $(kobe_is_streaming_text).text( streamer_username + " is not streaming :(")
+    }
+
+
+    $("#metadata-container").append(kobe_is_streaming_text)
 }
 
 $(document).ready(function () {
-    
+    check_if_kobe_is_streaming()
+
     $("#check-button").click(function (){
         check_if_kobe_is_streaming()
     })

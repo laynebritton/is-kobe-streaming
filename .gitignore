@@ -1,2 +1,5 @@
 valid-json-resonse-examples/
 .vs/
+api-key.json
+config.js
+

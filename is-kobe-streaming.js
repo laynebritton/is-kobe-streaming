@@ -1,5 +1,5 @@
 var koberson1_user_id = "44325453"
-var client_id = config.key
+var client_id = config.KEY
 
 function check_if_kobe_is_streaming(){
 
@@ -7,9 +7,6 @@ function check_if_kobe_is_streaming(){
 }
 
 function send_request_to_twitch_api(){
-    var query = {
-        "Client-ID": client_id
-    }
 
     $.ajax({
         type:"GET",

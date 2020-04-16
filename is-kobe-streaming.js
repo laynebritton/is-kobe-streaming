@@ -48,32 +48,36 @@ function parse_api_response(response) {
 function populate_metadata_container(response) {
     var kobe_is_streaming_text = $("<span class='streaming-status-text'>")
 
-    if (response["data"][0]["type"] == "live") {
-        $(kobe_is_streaming_text).text(streamer_username + " is streaming!")
-        var line_break = $("<br>")
+    if(response["data"].length > 0){
+        if (response["data"][0]["type"] == "live") {
+            $(kobe_is_streaming_text).text(streamer_username + " is streaming!")
+            var line_break = $("<br>")
+    
+            var kobe_pic = $("<img src='https://static-cdn.jtvnw.net/jtv_user_pictures/ae2cdc51-53fe-4817-b2be-7c451e45f9a1-profile_image-70x70.png'>")
+    
+            var twitch_button = $("<button id='twitch-button' class='btn btn-primary'>")
+    
+            $(twitch_button).text("Go support our boy on twitch")
+    
+            $("#metadata-container").append(kobe_is_streaming_text)
+            $("#metadata-container").append(line_break)
+            $("#metadata-container").append(kobe_pic)
+            $("#metadata-container").append(line_break)
+            $("#metadata-container").append(twitch_button)
+    
+    
+    
+            $("#twitch-button").click(function () {
+                window.location.href = "https://twitch.tv/" + streamer_username
+            })
+        } 
+    }else {
 
-        var kobe_pic = $("<img src='https://static-cdn.jtvnw.net/jtv_user_pictures/ae2cdc51-53fe-4817-b2be-7c451e45f9a1-profile_image-70x70.png'>")
-
-        var twitch_button = $("<button id='twitch-button' class='btn btn-primary'>")
-
-        $(twitch_button).text("Go support our boy on twitch")
-
-        $("#metadata-container").append(kobe_is_streaming_text)
-        $("#metadata-container").append(line_break)
-        $("#metadata-container").append(kobe_pic)
-        $("#metadata-container").append(line_break)
-        $("#metadata-container").append(twitch_button)
-
-
-
-        $("#twitch-button").click(function () {
-            window.location.href = "https://twitch.tv/" + streamer_username
-        })
-    } else {
         $(kobe_is_streaming_text).text(streamer_username + " is not streaming :(")
         $("#metadata-container").append(kobe_is_streaming_text)
 
     }
+
 
 
 
